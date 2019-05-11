@@ -1,0 +1,20 @@
+<div class="example-container">
+  <mat-form-field>
+    <input [(ngModel)]="utilisateur.nom" matInput placeholder="Nom">
+  </mat-form-field>
+  <mat-form-field>
+    <input [(ngModel)]="utilisateur.email" matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)]="utilisateur.password"  matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [(ngModel)]="password2" matInput placeholder="Confirmez votre mot de passe" [type]="hide ? 'password' : 'text'" required="true">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+  <button  routerLink="/create" (click)="createUser()">Créer votre compte</button>
+</div>

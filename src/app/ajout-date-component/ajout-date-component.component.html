@@ -1,0 +1,17 @@
+<mat-form-field>
+  <input [(ngModel)]="date.date"  matInput [matDatepicker]="picker" placeholder="Choississez une date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Type de sondage</mat-label>
+  <mat-select required="true" [(ngModel)]="date.pause" [ngModelOptions]="{standalone: true}">
+    <mat-option value="true">
+      true
+    </mat-option>
+    <mat-option value="false">
+      false
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-button >Ajouter</button>

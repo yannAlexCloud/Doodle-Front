@@ -1,0 +1,33 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="sondage.intitule" matInput placeholder="Titre du sondage" name="intitule">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="sondage.code" matInput placeholder="Code" name="code">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <textarea [(ngModel)]="sondage.resume" matInput placeholder="Résumé du sondage" name="resume"></textarea>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="allergie" matInput placeholder="Allergie" name="allergie">
+  </mat-form-field>
+  <button mat-button (click)="addPreference()">Ajouter une allergie</button>
+  <br>
+  <mat-form-field>
+    <mat-label>Type de sondage</mat-label>
+    <mat-select required="true" [(ngModel)]="sondage.type" [ngModelOptions]="{standalone: true}">
+      <mat-option value="lieu">
+        lieu
+      </mat-option>
+      <mat-option value="date">
+        date
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <button mat-button routerLink="/{{sondage.type}}" (click)="createSondage()">Créer un nouveau sondage</button>
+</form>
